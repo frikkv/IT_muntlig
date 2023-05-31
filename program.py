@@ -11,19 +11,24 @@ alle_biler = []
 n = 0 
 
 for linje in linjer[1:-1]:
-    n +=1
     splittet_linje = linje.split(";")
     x = splittet_linje[6].split(" ")
     a = f"{x[0]}{x[1]}"
-    bil = Bil(splittet_linje[0],splittet_linje[1],splittet_linje[2],splittet_linje[3],splittet_linje[4],splittet_linje[5],a,splittet_linje[7],n)
+    bil = Bil(splittet_linje[0],splittet_linje[1],splittet_linje[2],splittet_linje[3],splittet_linje[4],splittet_linje[5],a,splittet_linje[7])
     alle_biler.append(bil)
 
 Thor = Eier("Thor")
+assert Thor.hent_navn() == "Thor"
 Thor.legg_til_bil(alle_biler[3])
-#Thor.legg_til_bil(alle_biler[8])
-#print(Thor.hent_biler)
+Thor.legg_til_bil(alle_biler[8])
+assert Thor.hent_biler()[0].hent_modell() == alle_biler[3].hent_modell()
 
-#print(alle_biler[7].hent_modell())
+a = Thor.hent_biler()[1].hent_pris()
+Thor.reparer_bil(Thor.hent_biler()[1])
+assert Thor.hent_konto() < 1000000
+b = Thor.hent_biler()[1].hent_pris()
+assert a < b
+
 
 
 

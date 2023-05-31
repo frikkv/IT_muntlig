@@ -1,4 +1,4 @@
-from bil import Bil 
+
 from random import randint
 
 
@@ -7,6 +7,8 @@ class Eier:
         self._navn = navn 
         self._konto = 1000000
         self._biler = []
+        self._salgshistorikk = []
+        self._kjopshistorikk = []
     
     def hent_navn(self):
         return self._navn 
@@ -25,21 +27,27 @@ class Eier:
     def kjop_bil(self,bil):
         self.legg_til_bil(bil)
         pris = bil.hent_pris()
+        self._kjopshistorikk.append([f"({bil.hent_merke()},{bil.hent_modell()},{bil.hent_aarsmodell()})",bil.hent_pris()])
         self._konto -= pris
-        return self.hent_konto()
 
     def reparer_bil(self,bil):
         kost = randint(5000,20000) 
+        print(f"---- Det kostet {kost}kr ----")
         self._konto -= kost
         bil.verdiokning()
 
 
     def selg_bil(self,bil):
-        for i in range(len(self._biler)):
-            if self._biler.hent_id() == bil.hent_id():
-                self._biler.remove(i) 
+        self._biler.remove(bil)
+        self._salgshistorikk.append([f"({bil.hent_merke()},{bil.hent_modell()},{bil.hent_aarsmodell()})",bil.hent_pris()])
         pris = bil.hent_pris()
         self._konto += pris
+    
+    def hent_kjop(self):
+        return self._kjopshistorikk 
+    
+    def hent_salg(self):
+        return self._salgshistorikk 
     
     
 
