@@ -1,39 +1,49 @@
+from random import randint 
+
 class Bil:
-    def __init__(self, merke, modell, aarsmodell, kilometer, gir, type, pris, url):
+    def __init__(self, merke, modell, aarsmodell, kilometer, gir, type, pris, url, id):
         self._merke = merke
         self._modell = modell
         self._aarsmodell = aarsmodell
         self._kilometer = kilometer
         self._gir = gir
         self._type = type
-        self._pris = pris
+        self._pris = int(pris)
         self._url = url
+        self._id = id 
 
-    def return_merke(self):
+    def hent_merke(self):
         return self._merke
 
-    def return_modell(self):
+    def hent_modell(self):
         return self._modell
 
-    def return_aarsmodell(self):
+    def hent_aarsmodell(self):
         return self._aarsmodell
 
-    def return_kilometer(self):
+    def hent_kilometer(self):
         return self._kilometer
 
-    def return_gir(self):
+    def hent_gir(self):
         return self._gir
 
-    def return_type(self):
+    def hent_type(self):
         return self._type
 
-    def return_pris(self):
-        x = self._pris.split(" ")
-        a = f"{x[0]}{x[1]}"
-        return int(a)
+    def hent_pris(self):
+        return self._pris
 
-    def return_url(self):
+    def hent_url(self):
         return self._url
+    
+    def hent_id(self):
+        return self._id
+    
+    def verdiokning(self):
+        verdiokning = randint(15000,40000)
+        self_pris += verdiokning 
+        
+
 
     def legg_til_bil(self):
         nytt_merke = input("Hvilket merke er bilen?")
