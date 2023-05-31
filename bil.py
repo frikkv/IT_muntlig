@@ -1,7 +1,19 @@
 from random import randint 
 
-class Bil:
+class Bil:   
     def __init__(self, merke, modell, aarsmodell, kilometer, gir, bil_type, pris, url):
+        """Klasse for bil
+
+        Args:
+            merke (string)): Merke til bilen
+            modell (string): Modellen til bilen
+            aarsmodell (string): Aarsmodellen til bilen
+            kilometer (string): Antall kilometer bilen har kjørt
+            gir (string): Hva slags girtype bilen har 
+            bil_type (string): Hva slags type bil det er 
+            pris (String): Prisen til bilen (endres til int senere)
+            url (String): Link til finn
+        """        
         self._merke = merke
         self._modell = modell
         self._aarsmodell = aarsmodell
@@ -36,7 +48,9 @@ class Bil:
         return self._url
     
     def verdiokning(self):
-        verdiokning = randint(15000,40000)
+        """Bil øker i verdi 
+        """        
+        verdiokning = randint(15000,40000) # Bilen øker med en random mengde kroner etter reperasjonen 
         print(f"---- Bilen økte i verdi med {verdiokning}kr")
         self._pris += verdiokning 
     

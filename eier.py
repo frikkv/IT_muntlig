@@ -20,26 +20,39 @@ class Eier:
         return self._konto
     
     def legg_til_bil(self,bil):
-        #merke,modell,aarsmodell,kilometer,gir,bil_type,pris,url,bil_id = str(bil[0]),str(bil[1]),str(bil[2]),str(bil[3]),str(bil[4]),str(bil[5]),str(bil[6]),str(bil[7],str(bil[8]))
-        #self._biler.append(Bil(merke, modell, aarsmodell, kilometer, gir, bil_type, pris, url,bil_id))
         self._biler.append(bil)
     
     def kjop_bil(self,bil):
+        """Kjøp av bil
+
+        Args:
+            bil (object): selve bilen
+        """        
         self.legg_til_bil(bil)
         pris = bil.hent_pris()
-        self._kjopshistorikk.append([f"({bil.hent_merke()},{bil.hent_modell()},{bil.hent_aarsmodell()})",bil.hent_pris()])
-        self._konto -= pris
+        self._kjopshistorikk.append([f"({bil.hent_merke()},{bil.hent_modell()},{bil.hent_aarsmodell()})",bil.hent_pris()]) # Lager en f-string med informasjon om bilen som man appender til en liste
+        self._konto -= pris # trekker fra prisen til bilen fra saldoen 
 
     def reparer_bil(self,bil):
-        kost = randint(5000,20000) 
+        """Reperasjon av bil
+
+        Args:
+            bil (object): selve bilen
+        """        
+        kost = randint(5000,20000) # Random hvor mye det koster å reparere bilen 
         print(f"---- Det kostet {kost}kr ----")
-        self._konto -= kost
-        bil.verdiokning()
+        self._konto -= kost # Trekker fra kosten av å reparere bilen 
+        bil.verdiokning() # sier at den spesifike bilen vi har hentet inn skal kjøre funksjonen verdiokning
 
 
     def selg_bil(self,bil):
-        self._biler.remove(bil)
-        self._salgshistorikk.append([f"({bil.hent_merke()},{bil.hent_modell()},{bil.hent_aarsmodell()})",bil.hent_pris()])
+        """Salg av bil
+
+        Args:
+            bil (object): selve bilen
+        """        
+        self._biler.remove(bil) # Fjerner bilen fra listen med biler som eieren har 
+        self._salgshistorikk.append([f"({bil.hent_merke()},{bil.hent_modell()},{bil.hent_aarsmodell()})",bil.hent_pris()]) # Legger til informasjon om bilen i en liste 
         pris = bil.hent_pris()
         self._konto += pris
     
