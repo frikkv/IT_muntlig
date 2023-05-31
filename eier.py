@@ -18,8 +18,9 @@ class Eier:
         return self._konto
     
     def legg_til_bil(self,bil):
-        merke,modell,aarsmodell,kilometer,gir,type,pris,url,id = str(bil[0]),str(bil[1]),str(bil[2]),str(bil[3]),str(bil[4]),str(bil[5]),str(bil[6]),str(bil[7],str(bil[8]))
-        self._biler.append(Bil(merke, modell, aarsmodell, kilometer, gir, type, pris, url,id))
+        #merke,modell,aarsmodell,kilometer,gir,bil_type,pris,url,bil_id = str(bil[0]),str(bil[1]),str(bil[2]),str(bil[3]),str(bil[4]),str(bil[5]),str(bil[6]),str(bil[7],str(bil[8]))
+        #self._biler.append(Bil(merke, modell, aarsmodell, kilometer, gir, bil_type, pris, url,bil_id))
+        self._biler.append(bil)
     
     def kjop_bil(self,bil):
         self.legg_til_bil(bil)

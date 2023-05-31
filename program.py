@@ -18,7 +18,10 @@ for linje in linjer[1:-1]:
     bil = Bil(splittet_linje[0],splittet_linje[1],splittet_linje[2],splittet_linje[3],splittet_linje[4],splittet_linje[5],a,splittet_linje[7],n)
     alle_biler.append(bil)
 
-print(alle_biler)
+Thor = Eier("Thor")
+Thor.legg_til_bil(alle_biler[3])
+#Thor.legg_til_bil(alle_biler[8])
+#print(Thor.hent_biler)
 
 #print(alle_biler[7].hent_modell())
 
