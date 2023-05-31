@@ -43,6 +43,11 @@ class Eier:
         print(f"---- Det kostet {kost}kr ----")
         self._konto -= kost # Trekker fra kosten av å reparere bilen 
         bil.verdiokning() # sier at den spesifike bilen vi har hentet inn skal kjøre funksjonen verdiokning
+    
+    def bad_reparer(self,bil):
+        kost = 20000
+        self._konto -= kost
+
 
 
     def selg_bil(self,bil):

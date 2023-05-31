@@ -44,7 +44,7 @@ while svar != "Nei" or svar != "nei":
     print("----1. Sjekk biler (0-50)             ----")
     print("----2. Legge til eier (navn)          ----")
     print("----3. Kjøpe en bil (0-50)            ----")
-    print("----4. Reparer en bil                 ----")
+    print("----4. Reparere en bil                 ----")
     print("----5. Selg en bil                    ----")
     print("----6. Informasjon om eier            ----")
     a = input("--- Hva ønsker du å gjøre?            ----")
@@ -108,10 +108,14 @@ while svar != "Nei" or svar != "nei":
         for i in range(len(valgt_eier[0].hent_biler())): # må ha in range for å bruke i senere, printer alle bilene til eieren
             print(f"{i+1}. {valgt_eier[0].hent_biler()[i].hent_bil()}") # Printer bilene til eieren 
         bil = int(input("Hvilken bil ønsker du å oppgradere/reparere")) -1 # må ha minus en fordi man har tatt i+1 tidligere, nummeret man skriver inn må stemme med det i terminalen
-        reparere = input("Det vil koste mellom 5000kr-20000kr, og bilen vil øke i verdi med mellom 15000kr-40000kr. Er du sikker på at du vil oppgradere/reparere bilen? ")
+        reparere = input("Det kan koste mellom 5000kr-20000kr, og bilen kan øke i verdi med mellom 15000kr-40000kr. Er du sikker på at du vil oppgradere/reparere bilen? ")
         if reparere != "nei" or "Nei":  
             valgt_bil = valgt_eier[0].hent_biler()[bil]
-            valgt_eier[0].reparer_bil(valgt_bil)
+            if randint(0,20) == 20:
+                valgt_eier[0].bad_reparer(valgt_bil)
+                print(f"---- Søren! Reperasjonen gikk dårlig! {valgt_eier[1]} tapte 20 000kr og bilen ble ikke fikset! ----\n---- Saldoen din er nå: {valgt_eier[0].hent_konto()}kr   ---- \n---- Bilen er nå verdt: {valgt_bil.hent_pris()}kr  -----")
+            else:
+                valgt_eier[0].reparer_bil(valgt_bil)
             print(f"---- Saldoen din er nå: {valgt_eier[0].hent_konto()}kr   ---- \n---- Bilen er nå verdt: {valgt_bil.hent_pris()}kr  -----")
         else:
             print("---- Bilen ble ikke reparert ----")
