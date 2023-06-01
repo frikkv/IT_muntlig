@@ -119,15 +119,15 @@ while svar != "Nei" or svar != "nei":
                 else:
                     valgt_eier[0].reparer_bil(valgt_bil)
                     print(f"---- Saldoen din er nå: {valgt_eier[0].hent_konto()}kr   ---- \n---- Bilen er nå verdt: {valgt_bil.hent_pris()}kr  -----")
-            if int(aarstall) < 2023:
-                if randint(0,100) == 100: # 1 prosent sjanse for en dårlig reperasjon
+            elif int(aarstall) < 2010:
+                if randint(0,20) == 100: # 5 prosent sjanse for en dårlig reperasjon
                     valgt_eier[0].bad_reparer(valgt_bil)
                     print(f"---- Søren! Reperasjonen gikk dårlig! {valgt_eier[1]} tapte 20 000kr og bilen ble ikke fikset! ----\n---- Saldoen din er nå: {valgt_eier[0].hent_konto()}kr   ---- \n---- Bilen er nå verdt: {valgt_bil.hent_pris()}kr  -----")
                 else:
                     valgt_eier[0].reparer_bil(valgt_bil)
                     print(f"---- Saldoen din er nå: {valgt_eier[0].hent_konto()}kr   ---- \n---- Bilen er nå verdt: {valgt_bil.hent_pris()}kr  -----")
-            if int(aarstall) < 2010:
-                if randint(0,20) == 20: # fem prosent sjanse for en dårlig reperasjon
+            elif int(aarstall) < 2023:
+                if randint(0,100) == 20: # 1 prosent sjanse for en dårlig reperasjon
                     valgt_eier[0].bad_reparer(valgt_bil)
                     print(f"---- Søren! Reperasjonen gikk dårlig! {valgt_eier[1]} tapte 20 000kr og bilen ble ikke fikset! ----\n---- Saldoen din er nå: {valgt_eier[0].hent_konto()}kr   ---- \n---- Bilen er nå verdt: {valgt_bil.hent_pris()}kr  -----")
                 else:
