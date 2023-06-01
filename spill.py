@@ -57,6 +57,7 @@ while svar != "Nei" or svar != "nei":
     if a == "2":
         # Lager person 
         navn = input("Hva heter eieren?")
+        print("Du får to tilfeldige biler når man lager en ny eier")
         eiere.append([Eier(navn),navn]) # Lager en eier med navn: navn og legger den til i listen over eiere, legger til en liste inni lista, [0] vil være eieren som et objetk [1] vil være eierens navn
         # Ved å ha en liste inni lista med eiere gjør at man kan bruke navnet til eieren senere ved å skrive valgt_eier[1]
         gjeldende_eier = len(eiere)-1 # gjeldene eier vil være posisjonen til den siste eieren i listen 
@@ -176,6 +177,7 @@ while svar != "Nei" or svar != "nei":
         if len(eiere) == 0:
             print("Du må lage en eier først!") 
             break 
+        
         valgt_eier = velg_eier("Hvilken eier ønsker du å kjøre et race for?")
         for i in range(len(valgt_eier[0].hent_biler())):
             print(f"{i+1}. {valgt_eier[0].hent_biler()[i].hent_bil()}") # eieren som et objekt kaller på funksjonen hent_biler[i], for å hente en spesifik bil fra listen av bilene til eieren. så kalles funksjonen hent_bil() for å hente litt informasjon om bilen
