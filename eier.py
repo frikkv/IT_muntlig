@@ -68,7 +68,7 @@ class Eier:
         return self._salgshistorikk
 
     def race_konto(self,bil):
-        endring = randint(-2000,4000)
+        endring = randint(-3000,4000)
         if endring <= 0:
             print(f"Du ble tatt for å kjøre et ulovelig race og fikk en bot! Du måtte betale {endring}kr")
         else:
