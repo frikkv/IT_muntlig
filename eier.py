@@ -65,7 +65,16 @@ class Eier:
         return self._kjopshistorikk 
     
     def hent_salg(self):
-        return self._salgshistorikk 
+        return self._salgshistorikk
+
+    def race_konto(self,bil):
+        endring = randint(-2000,4000)
+        if endring <= 0:
+            print(f"Du ble tatt for å kjøre et ulovelig race og fikk en bot! Du måtte betale {endring}kr")
+        else:
+            print(f"Gratulerer! Du vant racet, du tjente {endring}kr!")
+        self._konto += endring
+        bil.kjor_race()
     
     
 

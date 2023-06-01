@@ -24,7 +24,7 @@ class Bil:
         self._url = url
 
     def hent_merke(self):
-        return self._merke
+       return self._merke
 
     def hent_modell(self):
         return self._modell
@@ -56,6 +56,13 @@ class Bil:
     
     def hent_bil(self):
         return f"{self.hent_merke()} {self.hent_modell()} {self.hent_aarsmodell()} "
+    
+    def kjor_race(self):
+        skader = randint(0,1000)
+        self._pris -= skader
+        print(f"Du fikk noen skader på bilen under racet, og bilen gikk ned i verdi med {skader}kr")
+        
+
     
     
 

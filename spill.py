@@ -47,6 +47,7 @@ while svar != "Nei" or svar != "nei":
     print("----4. Reparere en bil                 ----")
     print("----5. Selg en bil                    ----")
     print("----6. Informasjon om eier            ----")
+    print("----7. Kjør et race                   ----")
     a = input("--- Hva ønsker du å gjøre?            ----")
 
     if a == "1":
@@ -170,6 +171,19 @@ while svar != "Nei" or svar != "nei":
         print(f"---- Kjøpshistorikk til {valgt_eier[1]}:")
         for i in range(len(valgt_eier[0].hent_kjop())):
             print(f"{valgt_eier[0].hent_kjop()[i][0]}, {valgt_eier[0].hent_kjop()[i][1]}")
+    
+    elif a == "7":
+        if len(eiere) == 0:
+            print("Du må lage en eier først!") 
+            break 
+        valgt_eier = velg_eier("Hvilken eier ønsker du å kjøre et race for?")
+        for i in range(len(valgt_eier[0].hent_biler())):
+            print(f"{i+1}. {valgt_eier[0].hent_biler()[i].hent_bil()}") # eieren som et objekt kaller på funksjonen hent_biler[i], for å hente en spesifik bil fra listen av bilene til eieren. så kalles funksjonen hent_bil() for å hente litt informasjon om bilen
+        bil = int(input("Hvilken bil ønsker du å kjøre race med?")) -1
+        valgt_bil = valgt_eier[0].hent_biler()[bil]
+        valgt_eier[0].race_konto(valgt_bil) 
+
+
 
     svar = input("Vil du fortsette?")
         
